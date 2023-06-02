@@ -66,6 +66,18 @@ Zotero.MarkDBconnect = {
                 }
 
             }.bind(this));
+            
+            // Register keyboard shortcut as ctrl+o
+            document.addEventListener('keypress', (e) => {
+                if (e.key.toLocaleLowerCase() == 'o' && e.ctrlKey) {
+                    try {
+                        this.openSelectedItemsURI(0);
+                    }
+                    catch (e) {
+                        console.log(e);
+                    }
+                }
+            });
         }
 
         this._initialized = true;
